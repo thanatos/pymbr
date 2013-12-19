@@ -113,7 +113,7 @@ def encode_mbr(partitions):
             partition_data.append(encode_partition(partition))
 
     preamble = b'\x00' * (512 - (16 * 4 + 2))
-    return preamble + b''.join(paritition_data) + b'\x55\xaa'
+    return preamble + b''.join(partition_data) + b'\x55\xaa'
 
 
 def read_mbr(fobj):
