@@ -14,6 +14,9 @@ if not hasattr(_six, 'indexbytes'):
     _six.indexbytes = _indexbytes
 
 
+PARTITION_TYPE_LINUX = 0x83
+
+
 class CylinderHeadSector(object):
     def __init__(self, cylinder, head, sector):
         self.cylinder = cylinder
