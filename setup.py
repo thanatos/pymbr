@@ -9,4 +9,5 @@ setup(
     author='Roy Wellington',
     url='https://github.com/thanatos/pymbr',
     py_modules=['mbr'],
+    install_requires=['six'],
 )
