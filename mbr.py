@@ -23,6 +23,20 @@ class CylinderHeadSector(object):
         self.head = head
         self.sector = sector
 
+    def __repr__(self):
+        return '{}.{}({!r}, {!r}, {!r})'.format(
+            __name__, type(self).__name__,
+            self.cylinder, self.head, self.sector,
+        )
+
+    def __eq__(self, other):
+        return self.cylinder == other.cylinder \
+            and self.head == other.head \
+            and self.sector == other.sector
+
+    def __ne__(self, other):
+        return not self == other
+
 
 class Partition(object):
     def __init__(
