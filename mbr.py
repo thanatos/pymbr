@@ -73,7 +73,15 @@ def encode_chs_bytes(chs):
 
 
 def decode_partition(partition_data):
+    """Decode an MBR partition table entry.
+
+    :returns: None if the partition entry is empty, otherwise, a Partition
+        object.
+    """
     assert len(partition_data) == 16
+    # An unused partition is all 0x00s.
+    if partition_data == (b'\x00' * 16):
+        return None
     status = _six.indexbytes(partition_data, 0)
     assert status in (0, 0x80)
     bootable = status == 0x80
